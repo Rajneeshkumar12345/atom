@@ -50,13 +50,13 @@ const SignUp = () => {
 
           <form class="card-body cardbody-color p-lg-5">
 
-            <div class="text-center">
-              <img src="../logo.png.png"  class="img-fluid profile-image-pic  rounded-circle my-3 rounded-sm"
+            <div class="text-center ">
+              <img src="../logo.png.png"  class="img-fluid profile-image-pic  rounded-circle my-2 rounded-sm "
                 width="200px" alt="profile"/>
             </div>
 
             <div class="mb-3 " >
-              <input type="text" class="form-control mt-2" style={{height:"50px"}} id="Username" aria-describedby="emailHelp"
+              <input type="text" class="form-control mt-3" style={{height:"50px"}} id="Username" aria-describedby="emailHelp"
                 placeholder="username"/>
             </div>
             <div class="mb-3">
