@@ -4,12 +4,37 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
-  // const handleChange = (e) => {
-  //   if (e.target.name == "name") {
-  //     setEmail(e.target.value);
-  //   } else if (e.target.name == "password") {
-  //     setPassword(e.target.value);
-  //   }
+  const userName = localStorage.getItem('name')
+   ? localStorage.getItem('name') : 'Rajneeshkumar@.com'
+
+   const userPassword = localStorage.getItem('password')
+   ? localStorage.getItem('password') : '12345'
+
+const handleSubmit = (e) => {
+  e.preventDefault()
+  if(name === userName && password === userPassword){
+    TransformStream.success('Login Success')
+    navigate("/login")
+  } else {
+    toast.error("Envalid")
+  }
+}
+
+  // const [inpval, setInpval]  = useState({
+  //   name: "",
+  //   password: ""
+  // })
+  // console.log(inpval);
+
+  // const getData = (e) => {
+  //  const {value, name} = e.target;
+
+  //  setInpval(() => {
+  //     return {
+  //       ...inpval,
+  //       [name]:value
+  //     }
+  //  })
   // }
 
   // const handleSubmit = async (e) => {
@@ -57,13 +82,13 @@ const SignUp = () => {
 
             <div class="mb-3 " >
               <input type="text" class="form-control mt-3" style={{height:"50px"}} id="Username" aria-describedby="emailHelp"
-                placeholder="username"/>
+                placeholder="username" value={name} onChange={handleChange}/>
             </div>
             <div class="mb-3">
-              <input type="password" class="form-control" style={{height:"50px"}} id="password" placeholder="password"/>
+              <input type="password" class="form-control" style={{height:"50px"}} id="password" placeholder="password" value={password} onChange={handleChange}/>
             </div>
-            <div class="text-center"><button type="submit" class="btn btn-dark px-5 mb-5 w-100 mt-2" style={{height:"50px"}}>Submit</button></div>
-            <div id="emailHelp" class="form-text text-center mb-5 text-dark">Already have an account, <a href="#" class="text-dark fw-bold"> Login</a>
+            <div class="text-center"><button type="submit" class="btn btn-dark px-5 mb-5 w-100 mt-2" style={{height:"50px"}} onClick={handleSubmit}>Submit</button></div>
+            <div id="emailHelp" class="form-text text-center mb-5 text-dark">Already have an account, <a href="/login" class="text-dark fw-bold"> Login</a>
             </div>
           </form>
         </div>
